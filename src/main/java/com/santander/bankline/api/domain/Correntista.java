@@ -1,9 +1,22 @@
 package com.santander.bankline.api.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tbl_correntista")
 public class Correntista {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(length = 20)
     private String cpf;
+
+    @Column(length = 20)
     private String nome;
+
+    @Embedded
     private Conta conta;
 
     public Long getId() {

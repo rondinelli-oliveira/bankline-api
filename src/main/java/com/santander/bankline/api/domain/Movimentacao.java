@@ -1,12 +1,23 @@
 package com.santander.bankline.api.domain;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "tbl_movimentacao")
 public class Movimentacao {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "data_hora")
     private LocalDateTime dataHora;
+
     private String descricao;
     private Double valor;
+
+    @Enumerated(EnumType.STRING)
     private TipoMovimentacao tipoMovimentacao;
 
     public Long getId() {
