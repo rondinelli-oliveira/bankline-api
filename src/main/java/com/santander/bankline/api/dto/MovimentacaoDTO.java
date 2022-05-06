@@ -1,43 +1,12 @@
-package com.santander.bankline.api.domain;
+package com.santander.bankline.api.dto;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
+import com.santander.bankline.api.domain.TipoMovimentacao;
 
-@Entity
-@Table(name = "tbl_movimentacao")
-public class Movimentacao {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "data_hora")
-    private LocalDateTime dataHora;
-
+public class MovimentacaoDTO {
     private String descricao;
     private Double valor;
-
-    @Enumerated(EnumType.STRING)
     private TipoMovimentacao tipoMovimentacao;
-
-    @Column(name = "id_conta")
     private Long idConta;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getDataHora() {
-        return dataHora;
-    }
-
-    public void setDataHora(LocalDateTime dataHora) {
-        this.dataHora = dataHora;
-    }
 
     public String getDescricao() {
         return descricao;
